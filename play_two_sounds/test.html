@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+  <h1>Howler example</h1>
+  <button onclick="play()">Play</button>
+  <p><input type="range" min="0" max="1" value="1" step="0.01" oninput="changeVolume1(this);">sound1 volume</p>
+  <p><input type="range" min="0" max="1" value="1" step="0.01" oninput="changeVolume2(this);">sound2 volume</p>
+
+  <script src="howler.js"></script>
+  <script>
+
+    var sound1;
+    var sound2;
+
+    function play() {
+      sound1 = new Howl({
+        src: ['audio1.mp3']
+      });
+      sound2 = new Howl({
+        src: ['audio2.mp3']
+      })
+      sound1.play();
+      sound2.play();
+    }
+
+    function changeVolume1(element) {
+      sound1.volume(element.value);
+    }
+
+    function changeVolume2(element) {
+      sound2.volume(element.value);
+    }
+  </script>
+</body>
+</html>
